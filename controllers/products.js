@@ -27,5 +27,4 @@ exports.getAddProduct = (req, res, next) => {
         productCSS: true
       });
     });
-    
   };

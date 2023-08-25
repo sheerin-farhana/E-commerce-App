@@ -23,4 +23,4 @@ router.post('/delete-product',adminController.postDeleteProduct);
 
 module.exports = router;
 
-// http://localhost:3000/admin/edit-product/123245?edit=true
+

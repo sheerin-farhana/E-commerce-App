@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
+const db = require('../util/database');
 const p = path.join(
     path.dirname(process.mainModule.filename),
     'data',
@@ -57,16 +57,17 @@ module.exports = class Cart{
         });
     }
 
-    static getCart(cb) {
-        fs.readFile(p,(err,fileContent) => {
-            const cart = JSON.parse(fileContent);
-            if(err){
-                return cb(null);
-            }
-            else{
-                cb(cart);
-            }
-            cb(cart);
-        })
+    static getCart() {
+        return db.execute('SELECT * FROM products');
     }
+    // fs.readFile(p,(err,fileContent) => {
+    //     const cart = JSON.parse(fileContent);
+    //     if(err){
+    //         return cb(null);
+    //     }
+    //     else{
+    //         cb(cart);
+    //     }
+    //     cb(cart);
+    // })
 }
